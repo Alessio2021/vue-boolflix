@@ -1,17 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Header 
+      @doSearch="getMovies($event)"
+      :searchMovieValue="searchMovieApp"
+    />
+    <Main 
+      :searchMovieMain="searchMovieApp"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Header from "./components/Header.vue";
+import Main from "./components/Main.vue";
 
 export default {
   name: "App",
+
   components: {
-    HelloWorld,
+    Header,
+    Main,
+  },
+  data() {
+    return {
+      searchMovieApp: '',
+      staticApi: 'https://api.themoviedb.org/3/search/movie?api_key=401d2b8a5e51bdf6caf8b6e192d59d74&query=',
+    }
+  },
+  methods: {
+    getMovies(text) {
+      this.searchMovieApp = this.staticApi + text;
+    }
   },
 };
 </script>
