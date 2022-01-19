@@ -1,12 +1,7 @@
 <template>
   <div id="app">
-    <Header 
-      @doSearch="getMovies($event)"
-      :searchMovieValue="searchMovieApp"
-    />
-    <Main 
-      :searchMovieMain="searchMovieApp"
-    />
+    <Header @doSearch="getMovie($event)"/>
+    <Main :searchMovieMain="searchMovie"/>
   </div>
 </template>
 
@@ -23,13 +18,13 @@ export default {
   },
   data() {
     return {
-      searchMovieApp: '',
-      staticApi: 'https://api.themoviedb.org/3/search/movie?api_key=401d2b8a5e51bdf6caf8b6e192d59d74&query=',
+      searchMovie: '',
+      
     }
   },
   methods: {
-    getMovies(text) {
-      this.searchMovieApp = this.staticApi + text;
+    getMovie(text) {
+      this.searchMovie = text;
     }
   },
 };

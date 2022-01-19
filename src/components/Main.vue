@@ -1,54 +1,26 @@
 .<template>
   <main>
       <ul>
-          <li>
+          <li v-for="(movie, index) in searchMovieMain" :key="index">
               <img src="" alt="">
-              <h2>Titolo</h2>
-              <h2>Titolo originale</h2>
-              <h2>Lingua</h2>
-              <h2>Voto</h2>
+              <h2>{{movie.title}}</h2>
+              <h2>{{ movie.original_title }}</h2>
+              <h2>{{ movie.original_language }}</h2>
+              <h2>{{ movie.vote_average }}</h2>
           </li>
       </ul>
   </main>
 </template>
 
 <script>
-import axios from 'axios';
 export default {
     name: 'Main',
-    props: {
-        searchMovieMain: {
-            type: String,
-        }
-    },
+    props: ['searchMovieMain'],
     data() {
         return {
-            movies: null
+            apiStatic: 'https://api.themoviedb.org/3/search/movie?api_key=401d2b8a5e51bdf6caf8b6e192d59d74&query='
         }
     },
-    computed: {
-        getAxios() {
-            axios.get(this.searchMovieMain)
-            .then((result) => {
-                this.movies = result.data.results
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-            return this.movies
-        },
-    },
-    methods: {
-        // getAxios() {
-        //     axios.get(this.searchMovieMain)
-        //     .then((result) => {
-        //         this.movies = result.data.results
-        //     })
-        //     .catch((error) => {
-        //         console.log(error);
-        //     });
-        // },
-    }
 }
 </script>
 
