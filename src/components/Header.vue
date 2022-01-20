@@ -41,7 +41,7 @@ export default {
             });
         },
         getSeries() {
-            const endpoint = 'series';
+            const endpoint = 'tv';
             const parameters = {
                 api_key: this.api_key,
                 language: this.language,
