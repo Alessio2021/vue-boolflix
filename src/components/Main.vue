@@ -5,7 +5,7 @@
               <img src="" alt="">
               <h2>{{movie.title}}</h2>
               <h2>{{ movie.original_title }}</h2>
-              <h2>{{ movie.original_language }}</h2>
+              <h2><i :class="(movie.original_language == 'en') ? 'flag flag-us' : `flag flag-${ movie.original_language }`"></i></h2>
               <h2>{{ movie.vote_average }}</h2>
           </li>
       </ul>

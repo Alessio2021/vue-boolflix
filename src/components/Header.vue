@@ -21,7 +21,7 @@ export default {
     methods: {
         getAxios() {
             this.inputFixed = this.inputSearch.replace(/ /g,"+");
-            axios.get('https://api.themoviedb.org/3/search/movie?api_key=401d2b8a5e51bdf6caf8b6e192d59d74&query=',
+            axios.get('https://api.themoviedb.org/3/search/movie?api_key=401d2b8a5e51bdf6caf8b6e192d59d74',
             {
                 params: {
                     query:this.inputFixed
