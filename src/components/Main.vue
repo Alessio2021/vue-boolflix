@@ -1,12 +1,12 @@
 .<template>
   <main>
       <ul>
-          <li v-for="(movie, index) in searchMovieMain" :key="index">
+          <li v-for="(movie, index) in list.movies" :key="index">
               <img src="" alt="">
-              <h2>Titolo: {{movie.title}}</h2>
-              <h4>Titolo originale {{ movie.original_title }}</h4>
-              <h5>Lingua <i :class="(movie.original_language == 'en') ? 'flag flag-us' : `flag flag-${ movie.original_language }`"></i></h5>
-              <h5>Voto: {{ movie.vote_average }}</h5>
+              <h2>Title: {{movie.title}}</h2>
+              <h4>Original title: {{ movie.original_title }}</h4>
+              <h5>Language: <i :class="(movie.original_language == 'en') ? 'flag flag-us' : `flag flag-${ movie.original_language }`"></i></h5>
+              <h5>Vote: {{ movie.vote_average }}</h5>
           </li>
       </ul>
   </main>
@@ -15,7 +15,7 @@
 <script>
 export default {
     name: 'Main',
-    props: ['searchMovieMain'],
+    props: ['list'],
     data() {
         return {
             

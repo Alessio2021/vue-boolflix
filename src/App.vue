@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <Header @doSearch="getMovie($event)"/>
-    <Main :searchMovieMain="searchMovie"/>
+    <Header @doSearch="getList($event)"/>
+    <Main 
+      :list="list"
+
+    />
   </div>
 </template>
 
@@ -18,13 +21,16 @@ export default {
   },
   data() {
     return {
-      searchMovie: '',
-      
+      list: {
+        movies: [],
+        series: [],
+      }
     }
   },
   methods: {
-    getMovie(text) {
-      this.searchMovie = text;
+    getList(text) {
+      this.list.movies = text.movies;
+      this.list.series = text.series;
     }
   },
 };

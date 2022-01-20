@@ -1,7 +1,7 @@
 .<template>
   <header>
-      <input @keyup.enter="getFilm" type="text" placeholder="Search" v-model="inputSearch">
-      <button @click="getFilm">Cerca</button>
+      <input @keyup.enter="getMerge" type="text" placeholder="Search" v-model="inputSearch">
+      <button @click="getMerge">Cerca</button>
   </header>
 </template>
 
@@ -13,7 +13,10 @@ export default {
     data() {
         return {
             inputSearch: '',
-            movies: null,
+            list: {
+                series: [],
+                movies: [],
+            },
             inputFixed: null,
             api_key: '401d2b8a5e51bdf6caf8b6e192d59d74',
             apiStatic: 'https://api.themoviedb.org/3/search/',
@@ -31,13 +34,35 @@ export default {
             this.inputFixed = this.inputSearch.replace(/ /g,"+");
             axios.get(`${this.apiStatic}${endpoint}`, { params: parameters })
             .then((result) => {
-                this.movies = result.data.results
-                this.$emit('doSearch', this.movies)
+                this.list.movies = result.data.results            
             })
             .catch((error) => {
                 console.log(error);
             });
         },
+        getSeries() {
+            const endpoint = 'series';
+            const parameters = {
+                api_key: this.api_key,
+                language: this.language,
+                query: this.inputSearch,
+            };
+            this.inputFixed = this.inputSearch.replace(/ /g,"+");
+            axios.get(`${this.apiStatic}${endpoint}`, { params: parameters })
+            .then((result) => {
+                this.list.series = result.data.results
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        },
+        getMerge() {
+            this.getFilm();
+            this.getSeries();
+            setTimeout(() => {
+                this.$emit('doSearch', this.list)
+             }, 500);
+        }
     }
     
 }
