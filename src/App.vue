@@ -3,7 +3,6 @@
     <Header @doSearch="getList($event)"/>
     <Main 
       :list="list"
-
     />
   </div>
 </template>
