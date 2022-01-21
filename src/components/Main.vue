@@ -1,7 +1,7 @@
 .<template>
-    <main>
-        <ul>
-            <li v-if="list.movies.length > 0">
+    <main class="bg-secondary">
+        <ul class="list-group">
+            <li class="bg-secondary list-group-item d-flex flex-wrap" v-if="list.movies.length > 0">
                 <Card 
                     v-for="(movie, index) in list.movies" 
                     :key="index + 'm'"
@@ -12,12 +12,12 @@
                     :vote="movie.vote_average"
                 />
             </li>
-            <li v-else>
-                No Movie Found
+            <li class="d-flex justify-content-center bg-secondary list-group-item " v-else>
+                <h1>No Movie Found</h1>
             </li>
         </ul>
         <ul>
-            <li v-if="list.series.length > 0">
+            <li class="list-group-item" v-if="list.series.length > 0">
                 <Card 
                     v-for="(serie, index) in list.series" 
                     :key="index + 's'"
@@ -28,8 +28,8 @@
                     :vote="serie.vote_average"
                 />
             </li>
-            <li v-else>
-                No Series Found
+            <li class="d-flex justify-content-center bg-secondary list-group-item " v-else>
+                <h1>No Series Found</h1>
             </li>
         </ul>
         <!-- <ul>
@@ -64,5 +64,7 @@ export default {
 </script>
 
 <style>
-
+    li {
+        
+    }
 </style>

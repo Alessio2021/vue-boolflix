@@ -1,8 +1,21 @@
 .<template>
-  <header>
-      <input @keyup.enter="getMerge" type="text" placeholder="Search" v-model="inputSearch">
-      <button @click="getMerge">Cerca</button>
-  </header>
+    <header class="bg-dark">
+        <div class="row">
+            <div class="col-12 ">
+                <div class="row ">
+                    <div class="col-6 d-flex justify-content-center logo">
+                        <img src="../assets/img/Boolflix.png" alt="">
+                    </div>
+                    <div class="col-6 d-flex justify-content-center">
+                        <div class="search d-flex align-items-center">
+                            <input @keyup.enter="getMerge" type="text" placeholder="Search" v-model="inputSearch">
+                            <button @click="getMerge">Cerca</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 </template>
 
 <script>
@@ -61,13 +74,15 @@ export default {
             this.getSeries();
             setTimeout(() => {
                 this.$emit('doSearch', this.list)
-             }, 500);
+            }, 500);
         }
     }
     
 }
 </script>
     
-<style>
+<style lang="scss">
+    header {
 
+    }
 </style>

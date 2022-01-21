@@ -1,5 +1,5 @@
 .<template>
-    <section>
+    <div class="bg-secondary">
         <img v-if="img" :src="'https://image.tmdb.org/t/p/w342' + img" alt="">
         <img v-else :src="'https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3ANo-Image-Placeholder.svg&psig=AOvVaw2qOAVnGczIMkg-X59Vqu64&ust=1642845720618000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCLjcmrTLwvUCFQAAAAAdAAAAABAn'" alt="">
         <h2>Title: {{title}}</h2>
@@ -10,7 +10,7 @@
             :key="star"
             :class="(star <= numTrans(vote)) ? 'fas fa-star' : 'far fa-star'"
         />
-    </section>
+    </div>
 </template>
 
 <script>
@@ -55,6 +55,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+    section {
+        padding: 1em;
+    }
 </style>
