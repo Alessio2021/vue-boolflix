@@ -12,6 +12,7 @@
                     :origTitle="movie.original_title"
                     :Language="movie.original_language"
                     :vote="movie.vote_average"
+                    :overview="movie.overview"
                 />
             </li>
             <li class="border-0 d-flex justify-content-center bg-secondary list-group-item " v-else>
@@ -30,7 +31,7 @@
                     :origTitle="serie.original_name"
                     :Language="serie.original_language"
                     :vote="serie.vote_average"
-                    :hover="hover"
+                    :overview="serie.overview"
                 />
             </li>
             <li class="border-0 d-flex justify-content-center bg-secondary list-group-item " v-else>
@@ -69,7 +70,7 @@ export default {
     props: ['list'],
     data() {
         return {
-            hover: false,
+
         }
     },methods: {
         getHovered() {
