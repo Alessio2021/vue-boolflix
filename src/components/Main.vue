@@ -1,26 +1,36 @@
 .<template>
     <main>
         <ul>
-            <Card 
-                v-for="(movie, index) in list.movies" 
-                :key="index"
-                :img="movie.poster_path"
-                :title="movie.title"
-                :origTitle="movie.original_title"
-                :Language="movie.original_language"
-                :vote="movie.vote_average"
-            />
+            <li v-if="list.movies.length > 0">
+                <Card 
+                    v-for="(movie, index) in list.movies" 
+                    :key="index + 'm'"
+                    :img="movie.poster_path"
+                    :title="movie.title"
+                    :origTitle="movie.original_title"
+                    :Language="movie.original_language"
+                    :vote="movie.vote_average"
+                />
+            </li>
+            <li v-else>
+                No Movie Found
+            </li>
         </ul>
         <ul>
-            <Card 
-                v-for="(serie, index) in list.series" 
-                :key="index"
-                :img="serie.poster_path"
-                :title="serie.name"
-                :origTitle="serie.original_name"
-                :Language="serie.original_language"
-                :vote="serie.vote_average"
-            />
+            <li v-if="list.series.length > 0">
+                <Card 
+                    v-for="(serie, index) in list.series" 
+                    :key="index + 's'"
+                    :img="serie.poster_path"
+                    :title="serie.name"
+                    :origTitle="serie.original_name"
+                    :Language="serie.original_language"
+                    :vote="serie.vote_average"
+                />
+            </li>
+            <li v-else>
+                No Series Found
+            </li>
         </ul>
         <!-- <ul>
             <Card v-for="(serie, index) in list.series" :key="index">
