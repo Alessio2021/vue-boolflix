@@ -8,8 +8,8 @@
             <h3 class="text-light">Title: {{title}}</h3>
             <h5 class="text-light">Original title: {{ origTitle }}</h5>
             <h5 class="text-light">Language: <i :class="'flag flag-' + getFlag(Language)"></i></h5>
-            <h5 class="text-light stars">
-                Voto: <i
+            <h5 class="stars">
+                <span class="text-light">Voto: </span> <i
                 v-for="star in 5"
                 :key="star"
                 :class="(star <= numTrans(vote)) ? 'fas fa-star' : 'far fa-star'"
@@ -82,8 +82,16 @@ export default {
         .info {
             display: none;
             position: absolute;
-            top: 50px;
-            left: 10px;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border-radius: 20px;
+            padding: 2em 1.5em 0 1.5em;
+            overflow: auto;
+            svg {
+                color: yellow;
+            }
         }
     }
     .my_li:hover {
@@ -91,9 +99,15 @@ export default {
 
         .info {
             display: block;
+            border: 1px solid black;
         }
         .my_card {
             opacity: 0.1;
         }
     } 
 </style>
+
+<!--       _
+       .__(.)< (MEOW)
+        \___)   
+ ~~~~~~~~~~~~~~~~~~-->
