@@ -1,7 +1,9 @@
 .<template>
     <main class="bg-secondary">
+        <h2 class="p-4 m-0">Movies</h2>
         <ul class="list-group">
-            <li class="bg-secondary list-group-item d-flex flex-wrap" v-if="list.movies.length > 0">
+            <li class="border-0 bg-secondary list-group-item d-flex flex-wrap justify-content-center" 
+                v-if="list.movies.length > 0">
                 <Card 
                     v-for="(movie, index) in list.movies" 
                     :key="index + 'm'"
@@ -12,12 +14,14 @@
                     :vote="movie.vote_average"
                 />
             </li>
-            <li class="d-flex justify-content-center bg-secondary list-group-item " v-else>
-                <h1>No Movie Found</h1>
+            <li class="border-0 d-flex justify-content-center bg-secondary list-group-item " v-else>
+                <h1>No Movies Found</h1>
             </li>
         </ul>
-        <ul>
-            <li class="list-group-item" v-if="list.series.length > 0">
+        <h2 class="p-4 bg-secondary m-0">Series</h2>
+        <ul class="list-group">
+            <li class="border-0 bg-secondary list-group-item d-flex flex-wrap justify-content-center" 
+                v-if="list.series.length > 0">
                 <Card 
                     v-for="(serie, index) in list.series" 
                     :key="index + 's'"
@@ -26,12 +30,22 @@
                     :origTitle="serie.original_name"
                     :Language="serie.original_language"
                     :vote="serie.vote_average"
+                    :hover="hover"
                 />
             </li>
-            <li class="d-flex justify-content-center bg-secondary list-group-item " v-else>
+            <li class="border-0 d-flex justify-content-center bg-secondary list-group-item " v-else>
                 <h1>No Series Found</h1>
             </li>
         </ul>
+        <!-- <h2 class="p-4">Series</h2>
+        <ul class="list-group">
+            <li class="border-0 bg-secondary list-group-item d-flex flex-wrap" 
+
+            </li>
+            <li v-else class="border-0 d-flex justify-content-center bg-secondary list-group-item">
+                <h1>No Series Found</h1>
+            </li>
+        </ul> -->
         <!-- <ul>
             <Card v-for="(serie, index) in list.series" :key="index">
                 <img :src="'https://image.tmdb.org/t/p/w342' + serie.poster_path" alt="">
@@ -55,16 +69,18 @@ export default {
     props: ['list'],
     data() {
         return {
-            
+            hover: false,
         }
     },methods: {
-
+        getHovered() {
+            
+        }
     },
 }
 </script>
 
 <style>
-    li {
-        
+    main {
+        height: calc(100vh - 103px);
     }
 </style>
